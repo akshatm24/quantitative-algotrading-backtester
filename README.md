@@ -1,13 +1,16 @@
 # Quantitative AlgoTrading Backtester
 
-This repository contains my Finance and Analytics Club, IIT Kanpur winter project submission for building an end-to-end algorithmic trading workflow on **TCS 2023 daily price data**.
+Public project portfolio for my Finance and Analytics Club, IIT Kanpur winter project on building an end-to-end algorithmic trading workflow.
 
-## What This Project Shows
+**Period:** December 2024 - January 2025  
+**Dataset:** TCS daily price data for calendar year 2023
+
+## Recruiter Snapshot
 
 - Implemented technical indicators from scratch: **SMA, EMA, Bollinger Bands, MACD, Stochastic Oscillator, RSI, ADX, and ATR**.
 - Converted indicators into buy/sell signal functions and compared signal counts.
 - Combined multiple indicators into a weighted trading signal.
-- Built a Python backtesting engine for long trades with stop-loss and take-profit rules.
+- Built a Python backtesting engine for long trades with stop-loss and take-profit rules, trade logs, equity curve, and risk metrics.
 - Reported trading metrics including profit, total trades, win/loss count, maximum drawdown, and Sharpe ratio.
 
 ## Backtest Snapshot
@@ -25,7 +28,16 @@ This repository contains my Finance and Analytics Club, IIT Kanpur winter projec
 | Maximum drawdown | 56.47% |
 | Sharpe ratio | 0.09 |
 
-The strategy was built as a learning project, so the drawdown and Sharpe ratio are important context: the engine works, while the strategy still needs risk and signal-quality refinement before any real-world use.
+The strategy was built as a learning project. The drawdown and Sharpe ratio are intentionally included because they show honest evaluation: the engine works, while the strategy still needs risk and signal-quality refinement before any real-world use.
+
+## Resume Claim Traceability
+
+| Resume claim | Where to verify |
+| --- | --- |
+| 8 technical indicators | `notebooks/01_technical_indicators.ipynb` |
+| Indicator-wise signal functions | `notebooks/02_signal_generation.ipynb` |
+| Weighted combined signal and backtester | `notebooks/03_backtesting_engine.ipynb` |
+| Stop-loss, take-profit, trade logs, drawdown, Sharpe | Backtest class and final output cells |
 
 ## Repository Structure
 
@@ -37,13 +49,15 @@ notebooks/
 
 docs/
   final_assignment_prompt.pdf     # Original project prompt
+  project_summary.md              # Short reviewer-facing explanation
+
+requirements.txt                  # Python environment outline
 ```
 
 ## How To Review
 
-Start with `notebooks/03_backtesting_engine.ipynb` for the complete workflow, then inspect the first two notebooks for indicator and signal-generation logic.
+Start with `docs/project_summary.md`, then review `notebooks/03_backtesting_engine.ipynb` for the complete workflow. The first two notebooks show indicator and signal-generation logic.
 
 ## Tech Stack
 
 Python, Pandas, NumPy, Matplotlib, yfinance
-
