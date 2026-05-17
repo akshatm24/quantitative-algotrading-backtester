@@ -37,10 +37,10 @@ The strategy was built as a learning project. I include both returns and risk me
 
 | Resume claim | Where to verify |
 | --- | --- |
-| 8 technical indicators | `notebooks/01_technical_indicators.ipynb` |
-| Indicator-wise signal functions | `notebooks/02_signal_generation.ipynb` |
-| Weighted combined signal and backtester | `notebooks/03_backtesting_engine.ipynb` |
-| Stop-loss, take-profit, trade logs, drawdown, Sharpe | Backtest class and final output cells |
+| 8 technical indicators | `src/algotrading_backtester.py`, `notebooks/01_technical_indicators.ipynb` |
+| Indicator-wise signal functions | `src/algotrading_backtester.py`, `notebooks/02_signal_generation.ipynb` |
+| Weighted combined signal and backtester | `src/algotrading_backtester.py`, `docs/tcs_2023_metrics.json` |
+| Stop-loss, take-profit, trade logs, drawdown, Sharpe | `src/algotrading_backtester.py`, `docs/validation.md` |
 
 ## Repository Structure
 
