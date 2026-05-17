@@ -15,20 +15,23 @@ Public project portfolio for my Finance and Analytics Club, IIT Kanpur winter pr
 
 ## Backtest Snapshot
 
+Latest reproducible module run on `TCS.NS` daily data for 2023:
+
 | Metric | Value |
 | --- | ---: |
 | Initial capital | INR 1,000 |
-| Final capital | INR 2,176.29 |
-| Profit | INR 1,176.29 |
-| Total trades | 18 |
-| Winning trades | 8 |
-| Losing trades | 10 |
+| Final capital | INR 1,186.25 |
+| Profit | INR 186.25 |
+| Total return | 18.62% |
+| Total trades | 26 |
+| Winning trades | 12 |
+| Losing trades | 14 |
 | Stop-loss | 2% |
 | Take-profit | 3% |
-| Maximum drawdown | 56.47% |
-| Sharpe ratio | 0.09 |
+| Maximum drawdown | -6.74% |
+| Sharpe ratio | 1.25 |
 
-The strategy was built as a learning project. The drawdown and Sharpe ratio are intentionally included because they show honest evaluation: the engine works, while the strategy still needs risk and signal-quality refinement before any real-world use.
+The strategy was built as a learning project. I include both returns and risk metrics because the main contribution is the reproducible indicator/signal/backtest workflow, not an investment recommendation.
 
 ## Resume Claim Traceability
 
@@ -42,21 +45,40 @@ The strategy was built as a learning project. The drawdown and Sharpe ratio are 
 ## Repository Structure
 
 ```text
+src/
+  algotrading_backtester.py       # Reusable indicators, signal logic, and backtest engine
+
+scripts/
+  smoke_test.py                   # Deterministic local validation
+
 notebooks/
   01_technical_indicators.ipynb   # Indicator implementations
   02_signal_generation.ipynb      # Buy/sell signals from indicators
   03_backtesting_engine.ipynb     # Backtest engine and metrics
 
 docs/
+  backtest_metrics.json           # Deterministic sample-data run
+  tcs_2023_metrics.json           # Latest verified TCS.NS 2023 module run
   final_assignment_prompt.pdf     # Original project prompt
   project_summary.md              # Short reviewer-facing explanation
+  validation.md                   # Local checks run before publishing
 
 requirements.txt                  # Python environment outline
 ```
 
+## Run Locally
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m compileall src scripts
+python3 scripts/smoke_test.py
+python3 -m src.algotrading_backtester --sample
+python3 -m src.algotrading_backtester --ticker TCS.NS --start 2023-01-01 --end 2023-12-31 --output docs/tcs_2023_metrics.json
+```
+
 ## How To Review
 
-Start with `docs/project_summary.md`, then review `notebooks/03_backtesting_engine.ipynb` for the complete workflow. The first two notebooks show indicator and signal-generation logic.
+Start with `docs/project_summary.md` and `docs/validation.md`, then review `src/algotrading_backtester.py` for the clean reusable implementation. The notebooks preserve the original exploratory workflow.
 
 ## Tech Stack
 

@@ -1,0 +1,13 @@
+{
+  "initial_capital": 1000.0,
+  "final_capital": 1186.25,
+  "profit": 186.25,
+  "total_return_pct": 18.62,
+  "total_trades": 26,
+  "winning_trades": 12,
+  "losing_trades": 14,
+  "max_drawdown_pct": -6.74,
+  "sharpe_ratio": 1.25,
+  "stop_loss_pct": 0.02,
+  "take_profit_pct": 0.03
+}
